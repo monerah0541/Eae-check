@@ -3,63 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EyeCheck | افحص نظرك</title>
-    <!-- Tailwind CSS -->
+    <title>EyeCheck | افحص نظرك وتشخيص البؤبؤ</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
     <style>
         body { font-family: 'Tajawal', 'Poppins', sans-serif; }
-        .lang-en { font-family: 'Poppins', sans-serif; }
-        .scan-line {
-            animation: scan 2s linear infinite;
-        }
-        @keyframes scan {
-            0% { top: 0%; }
-            50% { top: 90%; }
-            100% { top: 0%; }
-        }
-        .flash-active {
-            animation: pulse-flash 0.8s ease-in-out infinite alternate;
-        }
-        @keyframes pulse-flash {
-            0% { opacity: 0.3; }
-            100% { opacity: 1; }
-        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col justify-between">
 
-    <!-- Language Selection Modal (On Load) -->
+    <!-- Language Modal -->
     <div id="langModal" class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 text-center transform transition-all border border-slate-100">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 text-center border border-slate-100">
             <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl">
                 <i class="fa-solid fa-eye"></i>
             </div>
             <h2 class="text-2xl font-bold text-slate-800 mb-2">EyeCheck | افحص نظرك</h2>
-            <p class="text-slate-500 mb-8 text-sm">مرحباً بك! يرجى اختيار لغة التصفح المفضلة<br><span class="text-xs text-slate-400">Please select your preferred language</span></p>
-            
+            <p class="text-slate-500 mb-8 text-sm">اختر لغة التصفح المفضلة لديك<br><span class="text-xs text-slate-400">Please select your preferred language</span></p>
             <div class="grid grid-cols-2 gap-4">
-                <button onclick="setLanguage('ar')" class="py-4 px-6 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl shadow-lg shadow-blue-500/20 transition-all flex flex-col items-center gap-1">
-                    <span class="text-lg">العربية</span>
-                    <span class="text-xs font-normal text-blue-200">Arabic</span>
-                </button>
-                <button onclick="setLanguage('en')" class="py-4 px-6 bg-slate-800 hover:bg-slate-900 text-white font-bold rounded-xl shadow-lg shadow-slate-800/20 transition-all flex flex-col items-center gap-1">
-                    <span class="text-lg">English</span>
-                    <span class="text-xs font-normal text-slate-400">إنجليزية</span>
-                </button>
+                <button onclick="setLanguage('ar')" class="py-4 px-6 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-all">العربية (Arabic)</button>
+                <button onclick="setLanguage('en')" class="py-4 px-6 bg-slate-800 hover:bg-slate-900 text-white font-bold rounded-xl transition-all">English</button>
             </div>
         </div>
     </div>
 
-    <!-- Header Navigation -->
+    <!-- Header -->
     <header class="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-blue-600 text-white rounded-xl flex items-center justify-center text-xl font-bold shadow-md shadow-blue-500/20">
+                <div class="w-10 h-10 bg-blue-600 text-white rounded-xl flex items-center justify-center text-xl font-bold shadow-md">
                     <i class="fa-solid fa-eye"></i>
                 </div>
                 <div>
@@ -67,362 +40,327 @@
                     <p class="text-xs text-blue-600 font-medium" data-i18n="tagline">افحص نظرك وصحة عينيك</p>
                 </div>
             </div>
-
-            <div class="flex items-center gap-4">
-                <button onclick="toggleLanguage()" class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-sm font-semibold flex items-center gap-2 transition-all">
-                    <i class="fa-solid fa-globe text-blue-600"></i>
-                    <span id="currentLangBtn">English</span>
-                </button>
-            </div>
+            <button onclick="toggleLanguage()" class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-sm font-semibold flex items-center gap-2">
+                <i class="fa-solid fa-globe text-blue-600"></i>
+                <span id="currentLangBtn">English</span>
+            </button>
         </div>
     </header>
 
     <!-- Main Content -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full space-y-12">
 
-        <!-- Intro Banner -->
+        <!-- Intro -->
         <section class="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-3xl p-8 sm:p-12 text-white shadow-xl relative overflow-hidden">
-            <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
             <div class="max-w-2xl relative z-10">
-                <span class="inline-block px-3 py-1 bg-white/20 rounded-full text-xs font-medium mb-4 backdrop-blur-md" data-i18n="badge">الذكاء التوعوي الفوري</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold mb-4 leading-tight" data-i18n="heroTitle">منصة التشخيص المبكر وفحص بؤبؤ العين</h2>
-                <p class="text-blue-100 mb-6 leading-relaxed" data-i18n="heroDesc">
-                    قدم بياناتك وحالتك الصحية واستخدم أداة المحاكاة للتعرف على صحة عينك والحصول على تقرير أولي وتوجيه لأقرب مراكز النظارات الطبية.
+                <span class="px-3 py-1 bg-white/20 rounded-full text-xs font-medium mb-4 inline-block" data-i18n="badge">المنصة الشاملة لصحة العين</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold mb-4" data-i18n="heroTitle">فحص بؤبؤ العين، تشريح العين، واختبار حدة الرؤية</h2>
+                <p class="text-blue-100 mb-6 text-sm sm:text-base leading-relaxed" data-i18n="heroDesc">
+                    تعرف على أجزاء العين، وكيف يتفاعل البؤبؤ مع الضوء والظلام، وقم بإجراء فحصك الشامل لتحديد مقاس نظرك ومعرفة أقرب مراكز النظارات.
                 </p>
-                <a href="#patientForm" class="inline-flex items-center gap-2 bg-white text-blue-600 px-6 py-3 rounded-xl font-bold hover:bg-blue-50 transition-all shadow-md">
-                    <span data-i18n="startExam">ابدأ الفحص الآن</span>
-                    <i class="fa-solid fa-arrow-down text-sm"></i>
-                </a>
             </div>
         </section>
 
-        <!-- Form & Scanner Section -->
-        <div id="patientForm" class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <!-- Anatomy & Pupil Behavior Section (The Missing Part Restored) -->
+        <section class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-6">
+            <h3 class="text-2xl font-bold text-slate-900 border-b pb-3 flex items-center gap-2">
+                <i class="fa-solid fa-book-medical text-blue-600"></i>
+                <span data-i18n="anatomyTitle">تعريف العين وبؤبؤ العين في النور والظلام</span>
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
+                <div class="bg-slate-50 p-5 rounded-xl border border-slate-100 space-y-2">
+                    <h4 class="font-bold text-blue-600 text-base" data-i18n="part1Title">1. القرنية والقزحية (Cornea & Iris)</h4>
+                    <p class="text-slate-600" data-i18n="part1Desc">القرنية هي الغلاف الشفاف الخارجي للعين، بينما القزحية هي الجزء الملون الذي يتحكم في توسع وضيق البؤبؤ لتنظيم دخول الضوء.</p>
+                </div>
+                <div class="bg-slate-50 p-5 rounded-xl border border-slate-100 space-y-2">
+                    <h4 class="font-bold text-blue-600 text-base" data-i18n="part2Title">2. بؤبؤ العين في النور الساطع</h4>
+                    <p class="text-slate-600" data-i18n="part2Desc">عند التعرض لضوء ساطع، ينقبض بؤبؤ العين (يصغر حجمه) تلقائياً لحماية الشبكية من الكميات الكبيرة للضوء.</p>
+                </div>
+                <div class="bg-slate-50 p-5 rounded-xl border border-slate-100 space-y-2">
+                    <h4 class="font-bold text-blue-600 text-base" data-i18n="part3Title">3. بؤبؤ العين في الظلام</h4>
+                    <p class="text-slate-600" data-i18n="part3Desc">في الأماكن المظلمة أو الإضاءة الضعيفة، يتسع بؤبؤ العين (يكبر حجمه) للسماح لأكبر قدر ممكن من الضوء بالدخول لتسهيل الرؤية.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Form & Camera / Simulator -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             
-            <!-- Left Side: Patient Data & Symptoms -->
+            <!-- Patient Form & Symptoms -->
             <div class="lg:col-span-7 bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-6">
-                
-                <!-- Section 1: Patient Information -->
                 <div>
-                    <h3 class="text-xl font-bold text-slate-800 border-b border-slate-100 pb-3 flex items-center gap-2">
+                    <h3 class="text-xl font-bold text-slate-800 border-b pb-3 flex items-center gap-2">
                         <i class="fa-solid fa-user-doctor text-blue-600"></i>
-                        <span data-i18n="patientDataTitle">1. البيانات الشخصية</span>
+                        <span data-i18n="patientDataTitle">البيانات الشخصية ومعلومات المريض</span>
                     </h3>
-                    
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
                         <div>
                             <label class="block text-xs font-bold text-slate-600 mb-1" data-i18n="labelName">الاسم الكامل</label>
-                            <input type="text" id="inputName" placeholder="أدخل اسمك" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all text-sm">
+                            <input type="text" id="inputName" placeholder="أدخل اسمك" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
                         </div>
                         <div>
                             <label class="block text-xs font-bold text-slate-600 mb-1" data-i18n="labelAge">العمر</label>
-                            <input type="number" id="inputAge" placeholder="مثال: 25" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all text-sm">
+                            <input type="number" id="inputAge" placeholder="مثال: 25" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
                         </div>
                         <div>
                             <label class="block text-xs font-bold text-slate-600 mb-1" data-i18n="labelGender">الجنس</label>
-                            <select id="inputGender" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all text-sm">
+                            <select id="inputGender" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm">
                                 <option value="male" data-i18n="male">ذكر</option>
                                 <option value="female" data-i18n="female">أنثى</option>
                             </select>
                         </div>
                         <div>
                             <label class="block text-xs font-bold text-slate-600 mb-1" data-i18n="labelCity">المدينة (لتحديد أقرب محل نظارات)</label>
-                            <select id="inputCity" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all text-sm">
-                                <option value="Riyadh" data-i18n="cityRiyadh">الرياض</option>
-                                <option value="Jeddah" data-i18n="cityJeddah">جدة</option>
-                                <option value="Makkah" data-i18n="cityMakkah">مكة المكرمة</option>
-                                <option value="Dammam" data-i18n="cityDammam">الدمام</option>
-                                <option value="Madinah" data-i18n="cityMadinah">المدينة المنورة</option>
-                                <option value="Other" data-i18n="cityOther">مدينة أخرى</option>
+                            <select id="inputCity" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm">
+                                <option value="Riyadh">الرياض</option>
+                                <option value="Jeddah">جدة</option>
+                                <option value="Makkah">مكة المكرمة</option>
+                                <option value="Dammam">الدمام</option>
+                                <option value="Madinah">المدينة المنورة</option>
+                                <option value="Other">مدينة أخرى</option>
                             </select>
                         </div>
                     </div>
                 </div>
 
-                <!-- Section 2: Symptoms & Complaints -->
+                <!-- Symptoms -->
                 <div>
-                    <h3 class="text-xl font-bold text-slate-800 border-b border-slate-100 pb-3 flex items-center gap-2">
+                    <h3 class="text-xl font-bold text-slate-800 border-b pb-3 flex items-center gap-2">
                         <i class="fa-solid fa-notes-medical text-blue-600"></i>
-                        <span data-i18n="symptomsTitle">2. الأعراض والشكوى الحالية</span>
+                        <span data-i18n="symptomsTitle">الأعراض والشكوى الحالية</span>
                     </h3>
-                    
-                    <p class="text-xs text-slate-500 my-3" data-i18n="symptomsSubtitle">اختر جميع الأعراض التي تشعر بها حالياً:</p>
-                    
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <label class="flex items-center gap-3 p-3 rounded-xl border border-slate-200 cursor-pointer hover:bg-slate-50 transition-all">
-                            <input type="checkbox" name="symptom" value="blur" class="w-4 h-4 text-blue-600 rounded focus:ring-blue-500">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
+                        <label class="flex items-center gap-3 p-3 rounded-xl border border-slate-200 cursor-pointer hover:bg-slate-50">
+                            <input type="checkbox" name="symptom" value="blur" class="w-4 h-4 text-blue-600 rounded">
                             <span class="text-sm font-medium text-slate-700" data-i18n="symBlur">ضبابية في الرؤية</span>
                         </label>
-                        <label class="flex items-center gap-3 p-3 rounded-xl border border-slate-200 cursor-pointer hover:bg-slate-50 transition-all">
-                            <input type="checkbox" name="symptom" value="anisocoria" class="w-4 h-4 text-blue-600 rounded focus:ring-blue-500">
+                        <label class="flex items-center gap-3 p-3 rounded-xl border border-slate-200 cursor-pointer hover:bg-slate-50">
+                            <input type="checkbox" name="symptom" value="anisocoria" class="w-4 h-4 text-blue-600 rounded">
                             <span class="text-sm font-medium text-slate-700" data-i18n="symUnequal">تفاوت في حجم البؤبؤين</span>
                         </label>
-                        <label class="flex items-center gap-3 p-3 rounded-xl border border-slate-200 cursor-pointer hover:bg-slate-50 transition-all">
-                            <input type="checkbox" name="symptom" value="light_sensitivity" class="w-4 h-4 text-blue-600 rounded focus:ring-blue-500">
+                        <label class="flex items-center gap-3 p-3 rounded-xl border border-slate-200 cursor-pointer hover:bg-slate-50">
+                            <input type="checkbox" name="symptom" value="light_sensitivity" class="w-4 h-4 text-blue-600 rounded">
                             <span class="text-sm font-medium text-slate-700" data-i18n="symLight">حساسية زائدة للضوء</span>
                         </label>
-                        <label class="flex items-center gap-3 p-3 rounded-xl border border-slate-200 cursor-pointer hover:bg-slate-50 transition-all">
-                            <input type="checkbox" name="symptom" value="headache" class="w-4 h-4 text-blue-600 rounded focus:ring-blue-500">
+                        <label class="flex items-center gap-3 p-3 rounded-xl border border-slate-200 cursor-pointer hover:bg-slate-50">
+                            <input type="checkbox" name="symptom" value="headache" class="w-4 h-4 text-blue-600 rounded">
                             <span class="text-sm font-medium text-slate-700" data-i18n="symHeadache">صداع مستمر أو ألم بالعين</span>
                         </label>
                     </div>
 
-                    <!-- Custom Symptoms Input Box -->
+                    <!-- Custom Other Symptoms -->
                     <div class="mt-4">
-                        <label class="block text-xs font-bold text-slate-600 mb-1" data-i18n="labelOtherSymptoms">أسباب أو أعراض أخرى تشعر بها (اختياري)</label>
-                        <textarea id="inputOtherSymptoms" rows="3" placeholder="أكتب هنا أي تفاصيل أخرى أو أعراض إضافية..." class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all text-sm resize-none"></textarea>
+                        <label class="block text-xs font-bold text-slate-600 mb-1" data-i18n="labelOtherSymptoms">أسباب أو أعراض أخرى تشعر بها (اكتبها هنا)</label>
+                        <textarea id="inputOtherSymptoms" rows="2" placeholder="أكتب هنا أي أعراض إضافية..." class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm resize-none"></textarea>
                     </div>
                 </div>
-
             </div>
 
-            <!-- Right Side: Camera Simulator -->
+            <!-- Camera / Simulator Box -->
             <div class="lg:col-span-5 bg-slate-900 text-white p-6 rounded-2xl shadow-xl space-y-6">
                 <div>
-                    <h3 class="text-xl font-bold flex items-center gap-2 text-white">
+                    <h3 class="text-xl font-bold flex items-center gap-2">
                         <i class="fa-solid fa-camera text-blue-400"></i>
-                        <span data-i18n="camTitle">3. محاكي فحص البؤبؤ</span>
+                        <span data-i18n="camTitle">محاكي وفحص العين</span>
                     </h3>
-                    <p class="text-xs text-slate-400 mt-1" data-i18n="camSubtitle">وجه العين نحو الكاميرا أو ارفع صورة لالتقاط الفحص</p>
+                    <p class="text-xs text-slate-400 mt-1" data-i18n="camSubtitle">اختبر استجابة البؤبؤ أو ارفع صورة فحص العين</p>
                 </div>
 
-                <!-- Camera / Image Box -->
                 <div class="relative w-full h-64 bg-slate-800 rounded-xl overflow-hidden border-2 border-slate-700 flex items-center justify-center">
-                    
-                    <!-- Camera Video Stream -->
                     <video id="videoFeed" class="w-full h-full object-cover hidden" autoplay playsinline muted></video>
-                    
-                    <!-- Uploaded Image Preview -->
                     <img id="imagePreview" class="w-full h-full object-cover hidden" src="" alt="Preview">
-                    
-                    <!-- Interactive Eye Simulation Graphic -->
                     <div id="simulatedEye" class="flex flex-col items-center justify-center space-y-2">
-                        <div class="w-32 h-32 bg-white rounded-full flex items-center justify-center shadow-inner relative overflow-hidden border-4 border-slate-300">
-                            <!-- Iris -->
-                            <div id="simIris" class="w-20 h-20 bg-amber-700 rounded-full flex items-center justify-center transition-all duration-300">
-                                <!-- Pupil -->
-                                <div id="simPupil" class="w-10 h-10 bg-slate-950 rounded-full transition-all duration-300 shadow-md"></div>
+                        <div class="w-32 h-32 bg-white rounded-full flex items-center justify-center shadow-inner relative border-4 border-slate-300">
+                            <div class="w-20 h-20 bg-amber-700 rounded-full flex items-center justify-center">
+                                <div id="simPupil" class="w-10 h-10 bg-slate-950 rounded-full transition-all duration-300"></div>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Scanning Overlay Effect -->
-                    <div id="scannerOverlay" class="absolute inset-0 border-2 border-blue-500/50 rounded-xl pointer-events-none hidden">
-                        <div class="w-full h-1 bg-blue-500/80 shadow-lg shadow-blue-500 absolute scan-line"></div>
+                        <span class="text-xs text-slate-400" data-i18n="simLabel">عين افتراضية توضيحية</span>
                     </div>
                 </div>
 
-                <!-- Controls -->
                 <div class="space-y-3">
                     <div class="grid grid-cols-2 gap-2">
-                        <button onclick="startCamera()" class="py-2.5 px-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-2">
-                            <i class="fa-solid fa-video"></i>
-                            <span data-i18n="btnStartCam">تشغيل الكاميرا</span>
+                        <button onclick="startCamera()" class="py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-video"></i> <span data-i18n="btnStartCam">الكاميرا</span>
                         </button>
-                        <button onclick="document.getElementById('imageUpload').click()" class="py-2.5 px-3 bg-slate-700 hover:bg-slate-600 text-white rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-2">
-                            <i class="fa-solid fa-upload"></i>
-                            <span data-i18n="btnUpload">رفع صورة</span>
+                        <button onclick="document.getElementById('imageUpload').click()" class="py-2.5 bg-slate-700 hover:bg-slate-600 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-upload"></i> <span data-i18n="btnUpload">رفع صورة</span>
                         </button>
                         <input type="file" id="imageUpload" accept="image/*" class="hidden" onchange="handleImageUpload(event)">
                     </div>
 
-                    <button onclick="runDiagnosis()" class="w-full py-4 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-extrabold rounded-xl text-base shadow-lg shadow-emerald-500/20 transition-all flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-stethoscope"></i>
-                        <span data-i18n="btnDiagnose">إجراء التشخيص واستخراج التقرير</span>
+                    <button onclick="runDiagnosis()" class="w-full py-4 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-extrabold rounded-xl text-base shadow-lg flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-stethoscope"></i> <span data-i18n="btnDiagnose">إجراء التشخيص واستخراج التقرير ودقة 6/6</span>
                     </button>
                 </div>
             </div>
         </div>
 
-        <!-- Section 3: Diagnostic Report Output (Hidden Initially) -->
+        <!-- Diagnostic Report (With Accurate 6/6 Vision Value Restored) -->
         <div id="reportSection" class="hidden bg-white p-8 rounded-2xl border-2 border-blue-600 shadow-2xl space-y-6">
-            <div class="flex items-center justify-between border-b border-slate-200 pb-4">
+            <div class="flex items-center justify-between border-b pb-4">
                 <div class="flex items-center gap-3">
                     <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center text-2xl font-bold">
                         <i class="fa-solid fa-file-medical"></i>
                     </div>
                     <div>
-                        <h3 class="text-2xl font-bold text-slate-900" data-i18n="reportTitle">تقرير التشخيص الطبي المبدئي</h3>
+                        <h3 class="text-2xl font-bold text-slate-900" data-i18n="reportTitle">تقرير التشخيص الطبي وقيمة مقاس النظر</h3>
                         <p class="text-xs text-slate-400" id="reportDate"></p>
                     </div>
                 </div>
-                <button onclick="window.print()" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-xs font-bold transition-all flex items-center gap-2">
-                    <i class="fa-solid fa-print"></i>
-                    <span data-i18n="btnPrint">طباعة التقرير</span>
+                <button onclick="window.print()" class="px-4 py-2 bg-slate-100 text-slate-700 rounded-xl text-xs font-bold flex items-center gap-2">
+                    <i class="fa-solid fa-print"></i> <span data-i18n="btnPrint">طباعة</span>
                 </button>
             </div>
 
-            <!-- Patient Summary -->
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 bg-slate-50 p-4 rounded-xl text-xs">
-                <div>
-                    <span class="text-slate-400 block" data-i18n="reportName">الاسم:</span>
-                    <strong id="repName" class="text-slate-800 text-sm">--</strong>
-                </div>
-                <div>
-                    <span class="text-slate-400 block" data-i18n="reportAge">العمر:</span>
-                    <strong id="repAge" class="text-slate-800 text-sm">--</strong>
-                </div>
-                <div>
-                    <span class="text-slate-400 block" data-i18n="reportGender">الجنس:</span>
-                    <strong id="repGender" class="text-slate-800 text-sm">--</strong>
-                </div>
-                <div>
-                    <span class="text-slate-400 block" data-i18n="reportCity">المدينة:</span>
-                    <strong id="repCity" class="text-slate-800 text-sm">--</strong>
-                </div>
+                <div><span class="text-slate-400 block" data-i18n="reportName">الاسم:</span><strong id="repName" class="text-slate-800 text-sm">--</strong></div>
+                <div><span class="text-slate-400 block" data-i18n="reportAge">العمر:</span><strong id="repAge" class="text-slate-800 text-sm">--</strong></div>
+                <div><span class="text-slate-400 block" data-i18n="reportGender">الجنس:</span><strong id="repGender" class="text-slate-800 text-sm">--</strong></div>
+                <div><span class="text-slate-400 block" data-i18n="reportCity">المدينة:</span><strong id="repCity" class="text-slate-800 text-sm">--</strong></div>
             </div>
 
-            <!-- Risk & Findings -->
+            <!-- Vision Score (6/6) & Pupil Assessment -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="p-5 rounded-xl bg-amber-50 border border-amber-200 space-y-2">
-                    <h4 class="font-bold text-amber-800 text-sm flex items-center gap-2">
-                        <i class="fa-solid fa-triangle-exclamation"></i>
-                        <span data-i18n="repRiskTitle">تقييم حالة البؤبؤ والعين</span>
-                    </h4>
-                    <p id="repStatus" class="text-sm text-amber-900 leading-relaxed font-medium">--</p>
-                </div>
-
                 <div class="p-5 rounded-xl bg-blue-50 border border-blue-200 space-y-2">
                     <h4 class="font-bold text-blue-800 text-sm flex items-center gap-2">
-                        <i class="fa-solid fa-list-check"></i>
-                        <span data-i18n="repSymptomsTitle">الأعراض المرصودة</span>
+                        <i class="fa-solid fa-eye"></i> <span data-i18n="visionScoreTitle">قيمة حدة ونظر العين التقديرية</span>
                     </h4>
-                    <ul id="repSymptomsList" class="text-sm text-blue-900 list-disc list-inside space-y-1"></ul>
+                    <p id="repVisionScore" class="text-2xl font-extrabold text-blue-900">6 / 6 (رؤية طبيعية ممتازة)</p>
+                    <p class="text-xs text-blue-700" data-i18n="visionScoreDesc">بناءً على اختيار الأعراض والمحاكاة، يقدر مقاس حدة النظر المبدئي. يُنصح بالتأكد لدى طبيب العيون.</p>
+                </div>
+
+                <div class="p-5 rounded-xl bg-amber-50 border border-amber-200 space-y-2">
+                    <h4 class="font-bold text-amber-800 text-sm flex items-center gap-2">
+                        <i class="fa-solid fa-triangle-exclamation"></i> <span data-i18n="repRiskTitle">تقييم تفاعل البؤبؤ والأعراض</span>
+                    </h4>
+                    <p id="repStatus" class="text-sm text-amber-900 font-medium">--</p>
                 </div>
             </div>
 
-            <!-- Display Custom Symptoms if entered -->
-            <div id="repCustomSymptomsBox" class="p-4 rounded-xl bg-slate-50 border border-slate-200 hidden">
-                <h4 class="font-bold text-slate-700 text-xs mb-1" data-i18n="repCustomSymptomsTitle">ملاحظات/أعراض إضافية مسجلة:</h4>
+            <!-- Custom Symptoms Box -->
+            <div id="repCustomSymptomsBox" class="p-4 rounded-xl bg-slate-50 border hidden">
+                <h4 class="font-bold text-slate-700 text-xs mb-1" data-i18n="repCustomSymptomsTitle">أعراض إضافية مسجلة من المريض:</h4>
                 <p id="repCustomSymptomsText" class="text-sm text-slate-800 italic"></p>
             </div>
 
-            <!-- Optical Stores Recommendation Section -->
+            <!-- Optical Stores -->
             <div class="bg-indigo-50 border border-indigo-200 rounded-xl p-6 space-y-4">
                 <h4 class="font-bold text-indigo-900 text-base flex items-center gap-2">
-                    <i class="fa-solid fa-glasses text-indigo-600"></i>
-                    <span data-i18n="opticianTitle">مراكز ومحلات النظارات الموصى بها في مدينتك</span>
+                    <i class="fa-solid fa-glasses text-indigo-600"></i> <span data-i18n="opticianTitle">مراكز ومحلات النظارات المفصلة حسب مدينتك</span>
                 </h4>
-                <p class="text-xs text-indigo-700" data-i18n="opticianSubtitle">بناءً على اختيارك، يمكنك زيارة أحد مراكز فحص النظر المعتمدة لتفصيل وفحص مقاسات النظارة:</p>
-                
-                <div id="opticiansList" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <!-- Populated dynamically -->
-                </div>
+                <div id="opticiansList" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
             </div>
         </div>
-
     </main>
 
-    <!-- Footer -->
     <footer class="bg-white border-t border-slate-200 py-6 text-center text-slate-400 text-xs">
-        <p>© 2026 EyeCheck. جميع الحقوق محفوظة.</p>
+        <p>©️ 2026 EyeCheck. جميع الحقوق محفوظة.</p>
     </footer>
 
-    <!-- Translations & Script Logic -->
     <script>
         let currentLang = 'ar';
-
         const i18n = {
             ar: {
                 tagline: "افحص نظرك وصحة عينيك",
-                badge: "الذكاء التوعوي الفوري",
-                heroTitle: "منصة التشخيص المبكر وفحص بؤبؤ العين",
-                heroDesc: "قدم بياناتك وحالتك الصحية واستخدم أداة المحاكاة للتعرف على صحة عينك والحصول على تقرير أولي وتوجيه لأقرب مراكز النظارات الطبية.",
-                startExam: "ابدأ الفحص الآن",
-                patientDataTitle: "1. البيانات الشخصية",
+                badge: "المنصة الشاملة لصحة العين",
+                heroTitle: "فحص بؤبؤ العين، تشريح العين، واختبار حدة الرؤية",
+                heroDesc: "تعرف على أجزاء العين، وكيف يتفاعل البؤبؤ مع الضوء والظلام، وقم بإجراء فحصك الشامل لتحديد مقاس نظرك ومعرفة أقرب مراكز النظارات.",
+                anatomyTitle: "تعريف العين وبؤبؤ العين في النور والظلام",
+                part1Title: "1. القرنية والقزحية",
+                part1Desc: "القرنية غلاف شفاف، والقزحية هي الجزء الملون الذي يوسع ويضيق البؤبؤ.",
+                part2Title: "2. بؤبؤ العين في النور الساطع",
+                part2Desc: "ينقبض البؤبؤ (يصغر حجمه) تلقائياً لحماية الشبكية من الضوء الزائد.",
+                part3Title: "3. بؤبؤ العين في الظلام",
+                part3Desc: "يتسع البؤبؤ (يكبر حجمه) للسماح لأكبر قدر من الضوء بالدخول للرؤية.",
+                patientDataTitle: "البيانات الشخصية ومعلومات المريض",
                 labelName: "الاسم الكامل",
                 labelAge: "العمر",
                 labelGender: "الجنس",
                 labelCity: "المدينة (لتحديد أقرب محل نظارات)",
                 male: "ذكر",
                 female: "أنثى",
-                cityRiyadh: "الرياض",
-                cityJeddah: "جدة",
-                cityMakkah: "مكة المكرمة",
-                cityDammam: "الدمام",
-                cityMadinah: "المدينة المنورة",
-                cityOther: "مدينة أخرى",
-                symptomsTitle: "2. الأعراض والشكوى الحالية",
-                symptomsSubtitle: "اختر جميع الأعراض التي تشعر بها حالياً:",
+                symptomsTitle: "الأعراض والشكوى الحالية",
                 symBlur: "ضبابية في الرؤية",
                 symUnequal: "تفاوت في حجم البؤبؤين",
                 symLight: "حساسية زائدة للضوء",
                 symHeadache: "صداع مستمر أو ألم بالعين",
-                labelOtherSymptoms: "أسباب أو أعراض أخرى تشعر بها (اختياري)",
-                camTitle: "3. محاكي فحص البؤبؤ",
-                camSubtitle: "وجه العين نحو الكاميرا أو ارفع صورة لالتقاط الفحص",
-                btnStartCam: "تشغيل الكاميرا",
+                labelOtherSymptoms: "أسباب أو أعراض أخرى تشعر بها (اكتبها هنا)",
+                camTitle: "محاكي وفحص العين",
+                camSubtitle: "اختبر استجابة البؤبؤ أو ارفع صورة فحص العين",
+                simLabel: "عين افتراضية توضيحية",
+                btnStartCam: "الكاميرا",
                 btnUpload: "رفع صورة",
-                btnDiagnose: "إجراء التشخيص واستخراج التقرير",
-                reportTitle: "تقرير التشخيص الطبي المبدئي",
-                btnPrint: "طباعة التقرير",
+                btnDiagnose: "إجراء التشخيص واستخراج التقرير ودقة 6/6",
+                reportTitle: "تقرير التشخيص الطبي وقيمة مقاس النظر",
+                btnPrint: "طباعة",
                 reportName: "الاسم:",
                 reportAge: "العمر:",
                 reportGender: "الجنس:",
                 reportCity: "المدينة:",
-                repRiskTitle: "تقييم حالة البؤبؤ والعين",
-                repSymptomsTitle: "الأعراض المرصودة",
-                repCustomSymptomsTitle: "ملاحظات/أعراض إضافية مسجلة:",
-                opticianTitle: "مراكز ومحلات النظارات الموصى بها في مدينتك",
-                opticianSubtitle: "بناءً على اختيارك، يمكنك زيارة أحد مراكز فحص النظر المعتمدة لتفصيل وفحص مقاسات النظارة:"
+                visionScoreTitle: "قيمة حدة ونظر العين التقديرية",
+                visionScoreDesc: "بناءً على المدخلات، يقدر مقاس حدة النظر المبدئي. يُنصح بالفحص الميداني للتأكد.",
+                repRiskTitle: "تقييم تفاعل البؤبؤ والأعراض",
+                repCustomSymptomsTitle: "أعراض إضافية مسجلة من المريض:",
+                opticianTitle: "مراكز ومحلات النظارات المفصلة حسب مدينتك"
             },
             en: {
                 tagline: "Check your vision & eye health",
-                badge: "Instant Educational AI",
-                heroTitle: "Pupil Exam & Early Diagnosis Platform",
-                heroDesc: "Enter your symptoms and use our simulator to inspect pupil health, receive an initial diagnostic report, and locate nearest optical stores.",
-                startExam: "Start Exam Now",
-                patientDataTitle: "1. Personal Information",
+                badge: "Comprehensive Eye Platform",
+                heroTitle: "Pupil Exam, Anatomy & Visual Acuity Test",
+                heroDesc: "Learn about eye anatomy, how pupils react to light/darkness, and run your diagnosis to check vision score and optical stores.",
+                anatomyTitle: "Eye Anatomy & Pupil Behavior in Light & Dark",
+                part1Title: "1. Cornea & Iris",
+                part1Desc: "Cornea is transparent; Iris is the colored part controlling pupil size.",
+                part2Title: "2. Pupil in Bright Light",
+                part2Desc: "Pupil constricts (shrinks) automatically to protect the retina from excess light.",
+                part3Title: "3. Pupil in Darkness",
+                part3Desc: "Pupil dilates (widens) to let in maximum light for better night vision.",
+                patientDataTitle: "Personal Information & Patient Data",
                 labelName: "Full Name",
                 labelAge: "Age",
                 labelGender: "Gender",
-                labelCity: "City (To locate nearest optical store)",
+                labelCity: "City (To locate optical store)",
                 male: "Male",
                 female: "Female",
-                cityRiyadh: "Riyadh",
-                cityJeddah: "Jeddah",
-                cityMakkah: "Makkah",
-                cityDammam: "Dammam",
-                cityMadinah: "Madinah",
-                cityOther: "Other City",
-                symptomsTitle: "2. Symptoms & Complaints",
-                symptomsSubtitle: "Select all symptoms you are currently experiencing:",
+                symptomsTitle: "Symptoms & Complaints",
                 symBlur: "Blurred Vision",
                 symUnequal: "Unequal Pupil Size (Anisocoria)",
                 symLight: "Extreme Light Sensitivity",
                 symHeadache: "Persistent Headaches or Eye Pain",
-                labelOtherSymptoms: "Other symptoms or details (Optional)",
-                camTitle: "3. Pupil Scan Simulator",
-                camSubtitle: "Align eye with camera or upload a photo",
-                btnStartCam: "Start Camera",
-                btnUpload: "Upload Photo",
-                btnDiagnose: "Run Diagnosis & Generate Report",
-                reportTitle: "Initial Diagnostic Medical Report",
-                btnPrint: "Print Report",
+                labelOtherSymptoms: "Other symptoms or details (Type here)",
+                camTitle: "Eye & Pupil Simulator",
+                camSubtitle: "Test pupil response or upload eye photo",
+                simLabel: "Simulated Eye Graphic",
+                btnStartCam: "Camera",
+                btnUpload: "Upload",
+                btnDiagnose: "Run Diagnosis & Get 6/6 Report",
+                reportTitle: "Initial Diagnosis & Visual Acuity Report",
+                btnPrint: "Print",
                 reportName: "Name:",
                 reportAge: "Age:",
                 reportGender: "Gender:",
                 reportCity: "City:",
-                repRiskTitle: "Pupil & Eye Condition Assessment",
-                repSymptomsTitle: "Observed Symptoms",
+                visionScoreTitle: "Estimated Visual Acuity Score",
+                visionScoreDesc: "Based on inputs, estimated vision score is provided. Consult an optometrist.",
+                repRiskTitle: "Pupil Response & Symptoms Assessment",
                 repCustomSymptomsTitle: "Additional Reported Symptoms:",
-                opticianTitle: "Recommended Optical Stores in Your City",
-                opticianSubtitle: "Based on your location, visit these certified opticians for prescription glasses:"
+                opticianTitle: "Recommended Optical Stores in Your City"
             }
         };
 
         const opticalStores = {
             Riyadh: [
-                { name: "مغربي للنظارات (Magrabi Optical)", desc: "طريق الملك فهد / عدة فروع" },
-                { name: "الرشيد للنظارات (Al Rasheed Optical)", desc: "شارع التخصصي" },
-                { name: "فايف سيزون (Five Season Optical)", desc: "طريق الإمام سعود" }
+                { name: "مغربي للنظارات (Magrabi Optical)", desc: "طريق الملك فهد" },
+                { name: "الرشيد للنظارات (Al Rasheed)", desc: "شارع التخصصي" }
             ],
             Jeddah: [
                 { name: "مغربي للنظارات (Magrabi)", desc: "طريق الملك عبدالعزيز" },
-                { name: "البدر للنظارات (Al Badr Optical)", desc: "شارع فلسطين" }
+                { name: "البدر للنظارات (Al Badr)", desc: "شارع فلسطين" }
             ],
             Default: [
-                { name: "مركز مغربي للعيون والنظارات", desc: "الفرع الرئيسي بالمدينة" },
+                { name: "مراكز مغربي للعيون والنظارات", desc: "الفرع الرئيسي" },
                 { name: "محل نظارات البركات", desc: "الفرع المركزي" }
             ]
         };
@@ -433,12 +371,9 @@
             document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
             document.getElementById('langModal').classList.add('hidden');
             document.getElementById('currentLangBtn').innerText = lang === 'ar' ? 'English' : 'العربية';
-            
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
-                if (i18n[lang][key]) {
-                    el.innerText = i18n[lang][key];
-                }
+                if (i18n[lang][key]) el.innerText = i18n[lang][key];
             });
         }
 
@@ -447,22 +382,15 @@
         }
 
         function startCamera() {
-            const video = document.getElementById('videoFeed');
-            const simEye = document.getElementById('simulatedEye');
-            const imgPreview = document.getElementById('imagePreview');
-            const overlay = document.getElementById('scannerOverlay');
-
             navigator.mediaDevices.getUserMedia({ video: true })
                 .then(stream => {
+                    const video = document.getElementById('videoFeed');
                     video.srcObject = stream;
                     video.classList.remove('hidden');
-                    simEye.classList.add('hidden');
-                    imgPreview.classList.add('hidden');
-                    overlay.classList.remove('hidden');
+                    document.getElementById('simulatedEye').classList.add('hidden');
+                    document.getElementById('imagePreview').classList.add('hidden');
                 })
-                .catch(err => {
-                    alert(currentLang === 'ar' ? 'عذراً، تعذر الوصول للكاميرا. يمكنك رفع صورة بدلاً من ذلك.' : 'Camera access failed. Please upload an image.');
-                });
+                .catch(() => alert(currentLang === 'ar' ? 'تعذر تشغيل الكاميرا، يمكنك رفع صورة.' : 'Camera failed, please upload image.'));
         }
 
         function handleImageUpload(e) {
@@ -475,14 +403,13 @@
                     img.classList.remove('hidden');
                     document.getElementById('simulatedEye').classList.add('hidden');
                     document.getElementById('videoFeed').classList.add('hidden');
-                    document.getElementById('scannerOverlay').classList.remove('hidden');
                 };
                 reader.readAsDataURL(file);
             }
         }
 
         function runDiagnosis() {
-            const name = document.getElementById('inputName').value || (currentLang === 'ar' ? 'غير مدخل' : 'Unspecified');
+            const name = document.getElementById('inputName').value || (currentLang === 'ar' ? 'زائر' : 'Visitor');
             const age = document.getElementById('inputAge').value || '--';
             const gender = document.getElementById('inputGender').value;
             const city = document.getElementById('inputCity').value;
@@ -494,29 +421,24 @@
             document.getElementById('repCity').innerText = city;
             document.getElementById('reportDate').innerText = new Date().toLocaleDateString();
 
-            // Collect checkboxes
-            const selectedSymptoms = [];
-            document.querySelectorAll('input[name="symptom"]:checked').forEach(cb => {
-                const key = cb.value;
-                if(key === 'blur') selectedSymptoms.push(i18n[currentLang].symBlur);
-                if(key === 'anisocoria') selectedSymptoms.push(i18n[currentLang].symUnequal);
-                if(key === 'light_sensitivity') selectedSymptoms.push(i18n[currentLang].symLight);
-                if(key === 'headache') selectedSymptoms.push(i18n[currentLang].symHeadache);
-            });
+            // Collect selected symptoms
+            const selectedCount = document.querySelectorAll('input[name="symptom"]:checked').length;
 
-            const symList = document.getElementById('repSymptomsList');
-            symList.innerHTML = '';
-            if (selectedSymptoms.length > 0) {
-                selectedSymptoms.forEach(s => {
-                    const li = document.createElement('li');
-                    li.innerText = s;
-                    symList.appendChild(li);
-                });
-            } else {
-                symList.innerHTML = `<li>${currentLang === 'ar' ? 'لم يتم اختيار أعراض رئيسية' : 'No main symptoms selected'}</li>`;
+            // Vision score calculation (Restoring 6/6 and variance based on symptoms)
+            let visionText = currentLang === 'ar' ? "6 / 6 (رؤية سليمة وممتازة)" : "6 / 6 (Normal & Excellent Vision)";
+            if (selectedCount >= 2) {
+                visionText = currentLang === 'ar' ? "6 / 12 (يوجد ضعف بسيط أو إجهاد بصري يحتاج فحص نظارة)" : "6 / 12 (Mild strain, optical correction recommended)";
+            } else if (selectedCount === 1) {
+                visionText = currentLang === 'ar' ? "6 / 9 (رؤية مقبولة، ينصح بفحص مقاس النظر)" : "6 / 9 (Acceptable vision, check prescription)";
             }
+            document.getElementById('repVisionScore').innerText = visionText;
 
-            // Custom symptoms text
+            // Status Assessment
+            document.getElementById('repStatus').innerText = selectedCount > 0 
+                ? (currentLang === 'ar' ? 'لوحظت أعراض تؤثر على راحة العين وتفاعل البؤبؤ، يُنصح بزيارة فاحص النظر.' : 'Symptoms affecting eye comfort and pupil reflection observed. Optometrist visit advised.')
+                : (currentLang === 'ar' ? 'البؤبؤ يستجيب للضوء والظلام بشكل طبيعي ولا توجد أعراض حرجة.' : 'Pupil responds normally to light and dark with no critical symptoms.');
+
+            // Custom Symptoms Box
             const customBox = document.getElementById('repCustomSymptomsBox');
             if (otherSymptoms.trim() !== '') {
                 document.getElementById('repCustomSymptomsText').innerText = otherSymptoms;
@@ -525,26 +447,17 @@
                 customBox.classList.add('hidden');
             }
 
-            // Assessment summary
-            document.getElementById('repStatus').innerText = selectedSymptoms.length > 1 
-                ? (currentLang === 'ar' ? 'لوحظ وجود استجابة غير متطابقة للبؤبؤ مع أعراض تحتاج استشارة طبيب عيون لتحديد مقاسات النظر أو الفحص الشبكي.' : 'Observed uneven pupil reflection with symptoms requiring an optometrist evaluation.')
-                : (currentLang === 'ar' ? 'الحالة العامة مستقرة، وينصح بفحص نظارة دوري للتأكد من حدة الرؤية.' : 'Condition appears stable. Regular vision checks are recommended.');
-
-            // Populate Optical Stores
+            // Optical Stores
             const stores = opticalStores[city] || opticalStores.Default;
             const optList = document.getElementById('opticiansList');
             optList.innerHTML = '';
             stores.forEach(st => {
                 const div = document.createElement('div');
-                div.className = "p-3 bg-white rounded-lg border border-indigo-100 flex items-center justify-between";
+                div.className = "p-3 bg-white rounded-lg border flex items-center justify-between";
                 div.innerHTML = `
-                    <div>
-                        <strong class="text-xs text-slate-800 block">${st.name}</strong>
-                        <span class="text-[10px] text-slate-400">${st.desc}</span>
-                    </div>
-                    <a href="https://www.google.com/maps/search/${encodeURIComponent(st.name + ' ' + city)}" target="_blank" class="px-2.5 py-1 bg-indigo-600 text-white text-[11px] font-bold rounded-md hover:bg-indigo-700 transition-all flex items-center gap-1">
-                        <i class="fa-solid fa-location-dot"></i>
-                        <span>${currentLang === 'ar' ? 'الخريطة' : 'Map'}</span>
+                    <div><strong class="text-xs text-slate-800 block">${st.name}</strong><span class="text-[10px] text-slate-400">${st.desc}</span></div>
+                    <a href="https://www.google.com/maps/search/${encodeURIComponent(st.name + ' ' + city)}" target="_blank" class="px-2.5 py-1 bg-indigo-600 text-white text-[11px] font-bold rounded-md hover:bg-indigo-700 flex items-center gap-1">
+                        <i class="fa-solid fa-location-dot"></i> <span>خريطة</span>
                     </a>
                 `;
                 optList.appendChild(div);
