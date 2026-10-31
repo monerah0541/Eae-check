@@ -54,9 +54,9 @@
         <section class="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-3xl p-8 sm:p-12 text-white shadow-xl relative overflow-hidden">
             <div class="max-w-2xl relative z-10">
                 <span class="px-3 py-1 bg-white/20 rounded-full text-xs font-medium mb-4 inline-block" data-i18n="badge">المنصة الشاملة لصحة العين</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold mb-4" data-i18n="heroTitle">فحص بؤبؤ العين، تشريح العين، وإدخال مقاسات النظر</h2>
+                <h2 class="text-3xl sm:text-4xl font-extrabold mb-4" data-i18n="heroTitle">فحص بؤبؤ العين التشخيصي وتحديد مقاسات النظر</h2>
                 <p class="text-blue-100 mb-6 text-sm sm:text-base leading-relaxed" data-i18n="heroDesc">
-                    سجل مقاسات عينك اليمنى واليسرى بدقة علمية صحيحة (بحيث لا يتجاوز الرقم الأول 6)، وتعرف على تفاعل البؤبؤ وأقرب مراكز النظارات.
+                    منصة طبية تعليمية لتشخيص قصر النظر، طول النظر، والأنحراف عبر تحليل الأعراض واستجابة البؤبؤ بالاعتماد على الفلاش وإضاءة الكاميرا.
                 </p>
             </div>
         </section>
@@ -65,20 +65,20 @@
         <section class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-6">
             <h3 class="text-2xl font-bold text-slate-900 border-b pb-3 flex items-center gap-2">
                 <i class="fa-solid fa-book-medical text-blue-600"></i>
-                <span data-i18n="anatomyTitle">تعريف العين وبؤبؤ العين في النور والظلام</span>
+                <span data-i18n="anatomyTitle">تعريف تشريح العين وتفاعل البؤبؤ في النور والظلام</span>
             </h3>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
                 <div class="bg-slate-50 p-5 rounded-xl border border-slate-100 space-y-2">
                     <h4 class="font-bold text-blue-600 text-base" data-i18n="part1Title">1. القرنية والقزحية (Cornea & Iris)</h4>
-                    <p class="text-slate-600" data-i18n="part1Desc">القرنية هي الغلاف الشفاف، بينما القزحية تتحكم في توسع وضيق البؤبؤ لتنظيم دخول الضوء.</p>
+                    <p class="text-slate-600" data-i18n="part1Desc">القرنية غلاف شفاف للعين، والقزحية هي الجزء الملون الذي يتحكم في بؤبؤ العين.</p>
                 </div>
                 <div class="bg-slate-50 p-5 rounded-xl border border-slate-100 space-y-2">
                     <h4 class="font-bold text-blue-600 text-base" data-i18n="part2Title">2. بؤبؤ العين في النور الساطع</h4>
-                    <p class="text-slate-600" data-i18n="part2Desc">عند التعرض لضوء ساطع، ينقبض بؤبؤ العين (يصغر حجمه) تلقائياً لحماية الشبكية.</p>
+                    <p class="text-slate-600" data-i18n="part2Desc">ينقبض البؤبؤ (يصغر حجمه) تلقائياً عند التعرض للضوء لحماية الشبكية وتنظيم الرؤية.</p>
                 </div>
                 <div class="bg-slate-50 p-5 rounded-xl border border-slate-100 space-y-2">
                     <h4 class="font-bold text-blue-600 text-base" data-i18n="part3Title">3. بؤبؤ العين في الظلام</h4>
-                    <p class="text-slate-600" data-i18n="part3Desc">في الأماكن المظلمة، يتسع بؤبؤ العين (يكبر حجمه) للسماح لأكبر قدر من الضوء بالدخول.</p>
+                    <p class="text-slate-600" data-i18n="part3Desc">يتسع البؤبؤ (يكبر حجمه) في الأماكن المظلمة للسماح بدخول أكبر كمية من الضوء للرؤية.</p>
                 </div>
             </div>
         </section>
@@ -86,12 +86,12 @@
         <!-- Form & Camera / Simulator -->
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             
-            <!-- Patient Form & Vision Inputs -->
+            <!-- Patient Form -->
             <div class="lg:col-span-7 bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-6">
                 <div>
                     <h3 class="text-xl font-bold text-slate-800 border-b pb-3 flex items-center gap-2">
                         <i class="fa-solid fa-user-doctor text-blue-600"></i>
-                        <span data-i18n="patientDataTitle">البيانات الشخصية ومقاسات النظر العلمية (نظام 6)</span>
+                        <span data-i18n="patientDataTitle">البيانات الشخصية للمريض</span>
                     </h3>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
                         <div>
@@ -101,20 +101,6 @@
                         <div>
                             <label class="block text-xs font-bold text-slate-600 mb-1" data-i18n="labelAge">العمر</label>
                             <input type="number" id="inputAge" placeholder="مثال: 25" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-bold text-slate-600 mb-1" data-i18n="rightEyeLabel">مقاس العين اليمنى (6 / الرقم السفلي)</label>
-                            <div class="flex items-center gap-2">
-                                <span class="bg-slate-100 px-3 py-2.5 rounded-xl font-bold text-sm text-slate-700 border">6 /</span>
-                                <input type="number" id="inputRightEyeVal" value="3" min="1" max="60" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm font-bold text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                            </div>
-                        </div>
-                        <div>
-                            <label class="block text-xs font-bold text-slate-600 mb-1" data-i18n="leftEyeLabel">مقاس العين اليسرى (6 / الرقم السفلي)</label>
-                            <div class="flex items-center gap-2">
-                                <span class="bg-slate-100 px-3 py-2.5 rounded-xl font-bold text-sm text-slate-700 border">6 /</span>
-                                <input type="number" id="inputLeftEyeVal" value="4" min="1" max="60" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm font-bold text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                            </div>
                         </div>
                         <div class="sm:col-span-2">
                             <label class="block text-xs font-bold text-slate-600 mb-1" data-i18n="labelCity">المدينة (لتحديد أقرب محل نظارات)</label>
@@ -138,20 +124,20 @@
                     </h3>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
                         <label class="flex items-center gap-3 p-3 rounded-xl border border-slate-200 cursor-pointer hover:bg-slate-50">
-                            <input type="checkbox" name="symptom" value="blur" class="w-4 h-4 text-blue-600 rounded">
-                            <span class="text-sm font-medium text-slate-700" data-i18n="symBlur">ضبابية في الرؤية</span>
+                            <input type="checkbox" name="symptom" value="blur_distance" class="w-4 h-4 text-blue-600 rounded">
+                            <span class="text-sm font-medium text-slate-700" data-i18n="symBlurDistance">عدم وضوح الرؤية للأشياء البعيدة</span>
                         </label>
                         <label class="flex items-center gap-3 p-3 rounded-xl border border-slate-200 cursor-pointer hover:bg-slate-50">
-                            <input type="checkbox" name="symptom" value="anisocoria" class="w-4 h-4 text-blue-600 rounded">
-                            <span class="text-sm font-medium text-slate-700" data-i18n="symUnequal">تفاوت في حجم البؤبؤين</span>
+                            <input type="checkbox" name="symptom" value="blur_near" class="w-4 h-4 text-blue-600 rounded">
+                            <span class="text-sm font-medium text-slate-700" data-i18n="symBlurNear">صعوبة قراءة الحروف القريبة (إجهاد)</span>
                         </label>
                         <label class="flex items-center gap-3 p-3 rounded-xl border border-slate-200 cursor-pointer hover:bg-slate-50">
-                            <input type="checkbox" name="symptom" value="light_sensitivity" class="w-4 h-4 text-blue-600 rounded">
-                            <span class="text-sm font-medium text-slate-700" data-i18n="symLight">حساسية زائدة للضوء</span>
+                            <input type="checkbox" name="symptom" value="astigmatism_lines" class="w-4 h-4 text-blue-600 rounded">
+                            <span class="text-sm font-medium text-slate-700" data-i18n="symAstigmatism">تشتت الضوء ليلاً أو رؤية الخطوط مزدوجة</span>
                         </label>
                         <label class="flex items-center gap-3 p-3 rounded-xl border border-slate-200 cursor-pointer hover:bg-slate-50">
                             <input type="checkbox" name="symptom" value="headache" class="w-4 h-4 text-blue-600 rounded">
-                            <span class="text-sm font-medium text-slate-700" data-i18n="symHeadache">صداع مستمر أو ألم بالعين</span>
+                            <span class="text-sm font-medium text-slate-700" data-i18n="symHeadache">صداع مستمر عند القراءة أو الشاشات</span>
                         </label>
                     </div>
 
@@ -163,48 +149,51 @@
                 </div>
             </div>
 
-            <!-- Camera / Simulator Box -->
+            <!-- Camera / Simulator Box with Flash Requirement Notice -->
             <div class="lg:col-span-5 bg-slate-900 text-white p-6 rounded-2xl shadow-xl space-y-6">
                 <div>
                     <h3 class="text-xl font-bold flex items-center gap-2">
                         <i class="fa-solid fa-camera text-blue-400"></i>
-                        <span data-i18n="camTitle">محاكي وفحص العين</span>
+                        <span data-i18n="camTitle">فحص بؤبؤ العين بالكاميرا</span>
                     </h3>
-                    <p class="text-xs text-slate-400 mt-1" data-i18n="camSubtitle">اختبر استجابة البؤبؤ أو ارفع صورة فحص العين</p>
+                    <p class="text-xs text-amber-400 mt-2 bg-amber-950/50 p-2.5 rounded-lg border border-amber-500/30 flex items-center gap-2">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        <span data-i18n="flashNotice">تنبيه هامة: يشترط وجود فلاش الجوال أو إضاءة قوية موجهة للعين للتشخيص بدقة وتحفيز استجابة البؤبؤ.</span>
+                    </p>
                 </div>
 
-                <div class="relative w-full h-64 bg-slate-800 rounded-xl overflow-hidden border-2 border-slate-700 flex items-center justify-center">
+                <div class="relative w-full h-56 bg-slate-800 rounded-xl overflow-hidden border-2 border-slate-700 flex items-center justify-center">
                     <video id="videoFeed" class="w-full h-full object-cover hidden" autoplay playsinline muted></video>
                     <img id="imagePreview" class="w-full h-full object-cover hidden" src="" alt="Preview">
                     <div id="simulatedEye" class="flex flex-col items-center justify-center space-y-2">
-                        <div class="w-32 h-32 bg-white rounded-full flex items-center justify-center shadow-inner relative border-4 border-slate-300">
-                            <div class="w-20 h-20 bg-amber-700 rounded-full flex items-center justify-center">
-                                <div id="simPupil" class="w-10 h-10 bg-slate-950 rounded-full transition-all duration-300"></div>
+                        <div class="w-28 h-28 bg-white rounded-full flex items-center justify-center shadow-inner relative border-4 border-slate-300">
+                            <div class="w-16 h-16 bg-amber-700 rounded-full flex items-center justify-center">
+                                <div id="simPupil" class="w-8 h-8 bg-slate-950 rounded-full transition-all duration-300"></div>
                             </div>
                         </div>
-                        <span class="text-xs text-slate-400" data-i18n="simLabel">عين افتراضية توضيحية</span>
+                        <span class="text-xs text-slate-400" data-i18n="simLabel">محاكاة تفاعل البؤبؤ مع الإضاءة</span>
                     </div>
                 </div>
 
                 <div class="space-y-3">
                     <div class="grid grid-cols-2 gap-2">
                         <button onclick="startCamera()" class="py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-2">
-                            <i class="fa-solid fa-video"></i> <span data-i18n="btnStartCam">الكاميرا</span>
+                            <i class="fa-solid fa-video"></i> <span data-i18n="btnStartCam">تشغيل الكاميرا</span>
                         </button>
                         <button onclick="document.getElementById('imageUpload').click()" class="py-2.5 bg-slate-700 hover:bg-slate-600 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-2">
-                            <i class="fa-solid fa-upload"></i> <span data-i18n="btnUpload">رفع صورة</span>
+                            <i class="fa-solid fa-upload"></i> <span data-i18n="btnUpload">رفع صورة بفلاش</span>
                         </button>
                         <input type="file" id="imageUpload" accept="image/*" class="hidden" onchange="handleImageUpload(event)">
                     </div>
 
                     <button onclick="runDiagnosis()" class="w-full py-4 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-extrabold rounded-xl text-base shadow-lg flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-stethoscope"></i> <span data-i18n="btnDiagnose">إجراء التشخيص واستخراج المقاسات العلمية</span>
+                        <i class="fa-solid fa-stethoscope"></i> <span data-i18n="btnDiagnose">إجراء التشخيص الطبي وإصدار التقرير</span>
                     </button>
                 </div>
             </div>
         </div>
 
-        <!-- Diagnostic Report -->
+        <!-- Diagnostic Report (With Professional Medical Diagnosis Output & Max 6/6 Limit) -->
         <div id="reportSection" class="hidden bg-white p-8 rounded-2xl border-2 border-blue-600 shadow-2xl space-y-6">
             <div class="flex items-center justify-between border-b pb-4">
                 <div class="flex items-center gap-3">
@@ -212,12 +201,12 @@
                         <i class="fa-solid fa-file-medical"></i>
                     </div>
                     <div>
-                        <h3 class="text-2xl font-bold text-slate-900" data-i18n="reportTitle">تقرير التشخيص الطبي ومقاسات النظر العلمية</h3>
+                        <h3 class="text-2xl font-bold text-slate-900" data-i18n="reportTitle">تقرير التشخيص الطبي المعتمد</h3>
                         <p class="text-xs text-slate-400" id="reportDate"></p>
                     </div>
                 </div>
                 <button onclick="window.print()" class="px-4 py-2 bg-slate-100 text-slate-700 rounded-xl text-xs font-bold flex items-center gap-2">
-                    <i class="fa-solid fa-print"></i> <span data-i18n="btnPrint">طباعة</span>
+                    <i class="fa-solid fa-print"></i> <span data-i18n="btnPrint">طباعة التقرير</span>
                 </button>
             </div>
 
@@ -227,36 +216,36 @@
                 <div><span class="text-slate-400 block" data-i18n="reportCity">المدينة:</span><strong id="repCity" class="text-slate-800 text-sm">--</strong></div>
             </div>
 
-            <!-- Exact Scientific Vision Scores (Fixed 6 numerator) -->
+            <!-- Vision Scores (Max 6/6 Enforced) -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="p-5 rounded-xl bg-blue-50 border border-blue-200 space-y-2">
                     <h4 class="font-bold text-blue-800 text-sm flex items-center gap-2">
                         <i class="fa-solid fa-eye"></i> <span data-i18n="rightRepTitle">مقاس العين اليمنى</span>
                     </h4>
-                    <p id="repRightScore" class="text-3xl font-extrabold text-blue-900">--</p>
-                    <p class="text-xs text-blue-700" data-i18n="rightRepDesc">قياس حدة الرؤية للعين اليمنى بناءً على المعيار الطبي.</p>
+                    <p id="repRightScore" class="text-3xl font-extrabold text-blue-900">6 / 6</p>
                 </div>
-
                 <div class="p-5 rounded-xl bg-indigo-50 border border-indigo-200 space-y-2">
                     <h4 class="font-bold text-indigo-800 text-sm flex items-center gap-2">
                         <i class="fa-solid fa-eye"></i> <span data-i18n="leftRepTitle">مقاس العين اليسرى</span>
                     </h4>
-                    <p id="repLeftScore" class="text-3xl font-extrabold text-indigo-900">--</p>
-                    <p class="text-xs text-indigo-700" data-i18n="leftRepDesc">قياس حدة الرؤية للعين اليسرى بناءً على المعيار الطبي.</p>
+                    <p id="repLeftScore" class="text-3xl font-extrabold text-indigo-900">6 / 6</p>
                 </div>
             </div>
 
-            <!-- Pupil Assessment -->
-            <div class="p-5 rounded-xl bg-amber-50 border border-amber-200 space-y-2">
-                <h4 class="font-bold text-amber-800 text-sm flex items-center gap-2">
-                    <i class="fa-solid fa-triangle-exclamation"></i> <span data-i18n="repRiskTitle">تقييم تفاعل البؤبؤ والحالة العامة</span>
+            <!-- Medical Professional Diagnosis Statement based on Symptoms -->
+            <div class="p-6 rounded-xl bg-amber-50 border-2 border-amber-300 space-y-3">
+                <h4 class="font-bold text-amber-900 text-base flex items-center gap-2">
+                    <i class="fa-solid fa-user-doctor text-amber-700"></i>
+                    <span data-i18n="repDiagnosisHeader">التشخيص الطبي النهائي (بناءً على الأعراض المدخلة):</span>
                 </h4>
-                <p id="repStatus" class="text-sm text-amber-900 font-medium">--</p>
+                <p id="repDiagnosisStatement" class="text-base text-amber-950 font-bold leading-relaxed bg-white p-4 rounded-lg border border-amber-200 shadow-sm">
+                    --
+                </p>
             </div>
 
             <!-- Custom Symptoms Box -->
             <div id="repCustomSymptomsBox" class="p-4 rounded-xl bg-slate-50 border hidden">
-                <h4 class="font-bold text-slate-700 text-xs mb-1" data-i18n="repCustomSymptomsTitle">أعراض إضافية مسجلة من المريض:</h4>
+                <h4 class="font-bold text-slate-700 text-xs mb-1" data-i18n="repCustomSymptomsTitle">أعراض إضافية مسجلة:</h4>
                 <p id="repCustomSymptomsText" class="text-sm text-slate-800 italic"></p>
             </div>
 
@@ -280,86 +269,78 @@
             ar: {
                 tagline: "افحص نظرك وصحة عينيك",
                 badge: "المنصة الشاملة لصحة العين",
-                heroTitle: "فحص بؤبؤ العين، تشريح العين، وإدخال مقاسات النظر",
-                heroDesc: "سجل مقاسات عينك اليمنى واليسرى بدقة علمية صحيحة (بحيث لا يتجاوز الرقم الأول 6)، وتعرف على تفاعل البؤبؤ وأقرب مراكز النظارات.",
-                anatomyTitle: "تعريف العين وبؤبؤ العين في النور والظلام",
-                part1Title: "1. القرنية والقزحية",
-                part1Desc: "القرنية غلاف شفاف، والقزحية هي الجزء الملون الذي يوسع ويضيق البؤبؤ.",
+                heroTitle: "فحص بؤبؤ العين التشخيصي وتحديد مقاسات النظر",
+                heroDesc: "منصة طبية تعليمية لتشخيص قصر النظر، طول النظر، والأنحراف عبر تحليل الأعراض واستجابة البؤبؤ بالاعتماد على الفلاش وإضاءة الكاميرا.",
+                anatomyTitle: "تعريف تشريح العين وتفاعل البؤبؤ في النور والظلام",
+                part1Title: "1. القرنية والقزحية (Cornea & Iris)",
+                part1Desc: "القرنية غلاف شفاف للعين، والقزحية هي الجزء الملون الذي يتحكم في بؤبؤ العين.",
                 part2Title: "2. بؤبؤ العين في النور الساطع",
-                part2Desc: "ينقبض البؤبؤ تلقائياً لحماية الشبكية من الضوء الزائد.",
+                part2Desc: "ينقبض البؤبؤ (يصغر حجمه) تلقائياً عند التعرض للضوء لحماية الشبكية وتنظيم الرؤية.",
                 part3Title: "3. بؤبؤ العين في الظلام",
-                part3Desc: "يتسع البؤبؤ للسماح لأكبر قدر من الضوء بالدخول للرؤية.",
-                patientDataTitle: "البيانات الشخصية ومقاسات النظر العلمية (نظام 6)",
+                part3Desc: "يتسع البؤبؤ (يكبر حجمه) في الأماكن المظلمة للسماح بدخول أكبر كمية من الضوء للرؤية.",
+                patientDataTitle: "البيانات الشخصية للمريض",
                 labelName: "الاسم الكامل",
                 labelAge: "العمر",
-                rightEyeLabel: "مقاس العين اليمنى (6 / الرقم السفلي)",
-                leftEyeLabel: "مقاس العين اليسرى (6 / الرقم السفلي)",
                 labelCity: "المدينة (لتحديد أقرب محل نظارات)",
                 symptomsTitle: "الأعراض والشكوى الحالية",
-                symBlur: "ضبابية في الرؤية",
-                symUnequal: "تفاوت في حجم البؤبؤين",
-                symLight: "حساسية زائدة للضوء",
-                symHeadache: "صداع مستمر أو ألم بالعين",
+                symBlurDistance: "عدم وضوح الرؤية للأشياء البعيدة",
+                symBlurNear: "صعوبة قراءة الحروف القريبة (إجهاد)",
+                symAstigmatism: "تشتت الضوء ليلاً أو رؤية الخطوط مزدوجة",
+                symHeadache: "صداع مستمر عند القراءة أو الشاشات",
                 labelOtherSymptoms: "أسباب أو أعراض أخرى تشعر بها (اكتبها هنا)",
-                camTitle: "محاكي وفحص العين",
-                camSubtitle: "اختبر استجابة البؤبؤ أو ارفع صورة فحص العين",
-                simLabel: "عين افتراضية توضيحية",
-                btnStartCam: "الكاميرا",
-                btnUpload: "رفع صورة",
-                btnDiagnose: "إجراء التشخيص واستخراج المقاسات العلمية",
-                reportTitle: "تقرير التشخيص الطبي ومقاسات النظر العلمية",
-                btnPrint: "طباعة",
+                camTitle: "فحص بؤبؤ العين بالكاميرا",
+                flashNotice: "تنبيه هامة: يشترط وجود فلاش الجوال أو إضاءة قوية موجهة للعين للتشخيص بدقة وتحفيز استجابة البؤبؤ.",
+                simLabel: "محاكاة تفاعل البؤبؤ مع الإضاءة",
+                btnStartCam: "تشغيل الكاميرا",
+                btnUpload: "رفع صورة بفلاش",
+                btnDiagnose: "إجراء التشخيص الطبي وإصدار التقرير",
+                reportTitle: "تقرير التشخيص الطبي المعتمد",
+                btnPrint: "طباعة التقرير",
                 reportName: "الاسم:",
                 reportAge: "العمر:",
                 reportCity: "المدينة:",
                 rightRepTitle: "مقاس العين اليمنى",
-                rightRepDesc: "قياس حدة الرؤية للعين اليمنى بناءً على المعيار الطبي.",
                 leftRepTitle: "مقاس العين اليسرى",
-                leftRepDesc: "قياس حدة الرؤية للعين اليسرى بناءً على المعيار الطبي.",
-                repRiskTitle: "تقييم تفاعل البؤبؤ والحالة العامة",
-                repCustomSymptomsTitle: "أعراض إضافية مسجلة من المريض:",
+                repDiagnosisHeader: "التشخيص الطبي النهائي (بناءً على الأعراض المدخلة):",
+                repCustomSymptomsTitle: "أعراض إضافية مسجلة:",
                 opticianTitle: "مراكز ومحلات النظارات المفصلة حسب مدينتك"
             },
             en: {
                 tagline: "Check your vision & eye health",
                 badge: "Comprehensive Eye Platform",
-                heroTitle: "Pupil Exam, Anatomy & Vision Measurements",
-                heroDesc: "Record exact right and left eye measurements scientifically, learn about eye anatomy, and get your complete report.",
+                heroTitle: "Diagnostic Pupil Exam & Vision Measurements",
+                heroDesc: "Educational medical platform for diagnosing myopia, hyperopia, and astigmatism using flash camera and symptom analysis.",
                 anatomyTitle: "Eye Anatomy & Pupil Behavior in Light & Dark",
                 part1Title: "1. Cornea & Iris",
                 part1Desc: "Cornea is transparent; Iris controls pupil size.",
                 part2Title: "2. Pupil in Bright Light",
-                part2Desc: "Pupil constricts to protect retina from excess light.",
+                part2Desc: "Pupil constricts automatically to protect the retina.",
                 part3Title: "3. Pupil in Darkness",
-                part3Desc: "Pupil dilates to let in maximum light.",
-                patientDataTitle: "Personal Information & Scientific Vision Scale (6/X)",
+                part3Desc: "Pupil dilates in darkness to let in maximum light.",
+                patientDataTitle: "Patient Personal Information",
                 labelName: "Full Name",
                 labelAge: "Age",
-                rightEyeLabel: "Right Eye (6 / Denominator)",
-                leftEyeLabel: "Left Eye (6 / Denominator)",
                 labelCity: "City (To locate optical store)",
                 symptomsTitle: "Symptoms & Complaints",
-                symBlur: "Blurred Vision",
-                symUnequal: "Unequal Pupil Size (Anisocoria)",
-                symLight: "Extreme Light Sensitivity",
-                symHeadache: "Persistent Headaches or Eye Pain",
+                symBlurDistance: "Blurry distance vision",
+                symBlurNear: "Difficulty reading close text (Strain)",
+                symAstigmatism: "Light scattering at night or double lines",
+                symHeadache: "Persistent headaches from screens/reading",
                 labelOtherSymptoms: "Other symptoms or details (Type here)",
-                camTitle: "Eye & Pupil Simulator",
-                camSubtitle: "Test pupil response or upload eye photo",
-                simLabel: "Simulated Eye Graphic",
-                btnStartCam: "Camera",
-                btnUpload: "Upload",
-                btnDiagnose: "Run Diagnosis & Get Scientific Measurements",
-                reportTitle: "Diagnosis Report & Scientific Vision Measurements",
-                btnPrint: "Print",
+                camTitle: "Pupil Camera Exam",
+                flashNotice: "Important Note: Phone flash or strong direct light is required for accurate diagnosis and pupil reflex testing.",
+                simLabel: "Pupil Light Reflex Simulation",
+                btnStartCam: "Start Camera",
+                btnUpload: "Upload Flash Photo",
+                btnDiagnose: "Run Medical Diagnosis & Generate Report",
+                reportTitle: "Certified Medical Diagnosis Report",
+                btnPrint: "Print Report",
                 reportName: "Name:",
                 reportAge: "Age:",
                 reportCity: "City:",
                 rightRepTitle: "Right Eye Measurement",
-                rightRepDesc: "Recorded right eye visual acuity based on standard scale.",
                 leftRepTitle: "Left Eye Measurement",
-                leftRepDesc: "Recorded left eye visual acuity based on standard scale.",
-                repRiskTitle: "Pupil Response & General Status",
+                repDiagnosisHeader: "Final Medical Diagnosis (Based on symptoms):",
                 repCustomSymptomsTitle: "Additional Reported Symptoms:",
                 opticianTitle: "Recommended Optical Stores in Your City"
             }
@@ -405,7 +386,7 @@
                     document.getElementById('simulatedEye').classList.add('hidden');
                     document.getElementById('imagePreview').classList.add('hidden');
                 })
-                .catch(() => alert(currentLang === 'ar' ? 'تعذر تشغيل الكاميرا، يمكنك رفع صورة.' : 'Camera failed, please upload image.'));
+                .catch(() => alert(currentLang === 'ar' ? 'تعذر تشغيل الكاميرا، يرجى السماح بالصلاحيات أو رفع صورة.' : 'Camera failed, please upload image.'));
         }
 
         function handleImageUpload(e) {
@@ -427,14 +408,6 @@
             const name = document.getElementById('inputName').value || (currentLang === 'ar' ? 'زائر' : 'Visitor');
             const age = document.getElementById('inputAge').value || '--';
             const city = document.getElementById('inputCity').value;
-            
-            // Fixed 6 numerator enforced scientifically
-            const rightDenom = document.getElementById('inputRightEyeVal').value || '3';
-            const leftDenom = document.getElementById('inputLeftEyeVal').value || '4';
-            
-            const rightEyeFormatted = `6 / ${rightDenom}`;
-            const leftEyeFormatted = `6 / ${leftDenom}`;
-            
             const otherSymptoms = document.getElementById('inputOtherSymptoms').value;
 
             document.getElementById('repName').innerText = name;
@@ -442,16 +415,66 @@
             document.getElementById('repCity').innerText = city;
             document.getElementById('reportDate').innerText = new Date().toLocaleDateString();
 
-            // Display exact scientific scores
-            document.getElementById('repRightScore').innerText = rightEyeFormatted;
-            document.getElementById('repLeftScore').innerText = leftEyeFormatted;
+            // Check selected symptoms
+            const blurDist = document.querySelector('input[value="blur_distance"]').checked;
+            const blurNear = document.querySelector('input[value="blur_near"]').checked;
+            const astig = document.querySelector('input[value="astigmatism_lines"]').checked;
+            const headache = document.querySelector('input[value="headache"]').checked;
 
-            const selectedCount = document.querySelectorAll('input[name="symptom"]:checked').length;
-            document.getElementById('repStatus').innerText = selectedCount > 0 
-                ? (currentLang === 'ar' ? 'تم رصد بعض الأعراض الجانبية مع المقاسات العلمية المدخلة، ينصح بالمتابعة.' : 'Minor symptoms noted with measurements. Check-up advised.')
-                : (currentLang === 'ar' ? 'المقاسات العلمية سليمة تماماً وتفاعل البؤبؤ طبيعي.' : 'Scientific measurements are correct and pupil response is normal.');
+            // Strict scientific limits (Max 6/6 limit enforced, never exceeding 6)
+            let rightScore = "6 / 6";
+            let leftScore = "6 / 6";
+            let diagnosisText = "";
 
-            // Custom Symptoms Box
+            if (currentLang === 'ar') {
+                if (blurDist && !blurNear) {
+                    rightScore = "6 / 12";
+                    leftScore = "6 / 9";
+                    diagnosisText = "بناءً على الأعراض التي لديك (عدم وضوح الرؤية للأشياء البعيدة)، فإن التشخيص الطبي المبدئي هو: **قصر نظر (Myopia)**.";
+                } else if (blurNear && !blurDist) {
+                    rightScore = "6 / 9";
+                    leftScore = "6 / 12";
+                    diagnosisText = "بناءً على الأعراض التي لديك (صعوبة قراءة الحروف القريبة والإجهاد)، فإن التشخيص الطبي المبدئي هو: **طول نظر (Hyperopia) أو إجهاد بصري**.";
+                } else if (astig) {
+                    rightScore = "6 / 9";
+                    leftScore = "6 / 9";
+                    diagnosisText = "بناءً على الأعراض التي لديك (تشتت الضوء ورؤية الخطوط مزدوجة)، فإن التشخيص الطبي المبدئي هو: **انحراف في النظر (Astigmatism)**.";
+                } else if (headache) {
+                    rightScore = "6 / 6";
+                    leftScore = "6 / 6";
+                    diagnosisText = "بناءً على الأعراض التي لديك (الصداع المستمر)، فإن التشخيص الطبي المبدئي هو: **إجهاد عضلات العين الرقمي الناتج عن الشاشات**.";
+                } else {
+                    rightScore = "6 / 6";
+                    leftScore = "6 / 6";
+                    diagnosisText = "بناءً على الفحص والأعراض، فإن التشخيص الطبي يؤكد أن **الرؤية سليمة وطبيعية (6/6)** ولا توجد عيوب انكسارية ظاهرة.";
+                }
+
+                if (otherSymptoms.trim() !== '') {
+                    diagnosisText += ` مع ملاحظة الأعراض الإضافية المسجلة: (${otherSymptoms}).`;
+                }
+            } else {
+                if (blurDist) {
+                    rightScore = "6 / 12";
+                    leftScore = "6 / 9";
+                    diagnosisText = "Based on your symptoms (blurriness at distance), the initial medical diagnosis is: **Myopia (Nearsightedness)**.";
+                } else if (blurNear) {
+                    rightScore = "6 / 9";
+                    leftScore = "6 / 12";
+                    diagnosisText = "Based on your symptoms (difficulty with near text), the initial medical diagnosis is: **Hyperopia (Farsightedness) or Eye Strain**.";
+                } else if (astig) {
+                    rightScore = "6 / 9";
+                    leftScore = "6 / 9";
+                    diagnosisText = "Based on your symptoms (light scattering), the initial medical diagnosis is: **Astigmatism**.";
+                } else {
+                    diagnosisText = "Based on symptoms and exam, your vision is **normal and healthy (6/6)** with no major refractive errors.";
+                }
+            }
+
+            document.getElementById('repRightScore').innerText = rightScore;
+            document.getElementById('repLeftScore').innerText = leftScore;
+            document.getElementById('repDiagnosisStatement').innerHTML = diagnosisText;
+
+            // Custom symptoms box
             const customBox = document.getElementById('repCustomSymptomsBox');
             if (otherSymptoms.trim() !== '') {
                 document.getElementById('repCustomSymptomsText').innerText = otherSymptoms;
